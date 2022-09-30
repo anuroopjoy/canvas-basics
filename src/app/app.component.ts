@@ -12,15 +12,14 @@ export class AppComponent implements OnInit {
     const context = canvas.getContext('2d');
     if (context) {
       context.strokeStyle = 'red';
-      context.fillStyle = 'rgb(17, 0, 255, 0.5)';
-      this.#drawLine(context);
-      context.lineWidth = 1;
+      context.fillStyle = 'rgba(17, 0, 255, 0.5)';
       this.#useGradients(context);
       this.#drawRectangle(context);
       this.#drawTriangle(context);
       this.#drawArc(context);
       this.#drawCurve(context);
       this.#drawUsingPath(context);
+      this.#drawLine(context);
       this.#drawText(context);
     }
   }
@@ -86,16 +85,16 @@ export class AppComponent implements OnInit {
     context.fillText('Hello', 100, 500);
   }
   #useGradients(context: CanvasRenderingContext2D) {
-    // const lineargradient = context.createLinearGradient(0, 0, 150, 150);
-    // lineargradient.addColorStop(0, 'white');
-    // lineargradient.addColorStop(1, 'black');
-    // context.fillStyle = lineargradient;
-    // const radgrad = context.createRadialGradient(45, 45, 10, 52, 50, 30);
-    // radgrad.addColorStop(0, '#A7D30C');
-    // radgrad.addColorStop(0.9, '#019F62');
-    // radgrad.addColorStop(1, 'rgba(1, 159, 98, 0.5)');
-    // context.fillStyle = radgrad;
-    const conicGrad = context.createConicGradient(2, 62, 75);
+    const lineargradient = context.createLinearGradient(20, 20, 120, 120);
+    lineargradient.addColorStop(0, 'white');
+    lineargradient.addColorStop(1, 'black');
+    context.fillStyle = lineargradient;
+    const radgrad = context.createRadialGradient(300, 300, 40, 300, 300, 80);
+    radgrad.addColorStop(0, '#A7D30C');
+    radgrad.addColorStop(0.9, '#019F62');
+    radgrad.addColorStop(1, 'rgba(1, 159, 98, 0.5)');
+    context.fillStyle = radgrad;
+    const conicGrad = context.createConicGradient((Math.PI / 180) * 0, 150, 70);
     conicGrad.addColorStop(0, '#A7D30C');
     conicGrad.addColorStop(1, '#fff');
     context.fillStyle = conicGrad;
